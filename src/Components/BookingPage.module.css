@@ -1,0 +1,81 @@
+.container{
+    display: flex;
+    background-image: url("../../public/bg-1.jpg");
+    /* opacity: 0.5; */
+}
+
+.container>div{
+     /* border: 1px solid rgba(233, 141, 104, 0.912);   */
+     width: 50%;
+     height: 100vh;
+}
+
+.bookingform{
+    background-color: rgba(0, 255, 255, 0.682);
+    margin: auto;
+    height: 400px;
+    width: 500px;
+    border: 2px solid black;
+    margin-top: 100px;
+    border-radius: 5%;
+}
+
+.availableseats{
+    padding: 20px;
+    background-color: rgba(0, 255, 255, 0.682);
+    margin: auto;
+    height: 550px;
+    width: 350px;
+    border: 2px solid black;
+    border-radius: 5%;
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(7,30px);
+    gap: 15px;
+    justify-content:center;
+    
+}
+
+.reservedseats{
+
+    width: 350px;
+    height: 80px;
+    border: 2px solid black;
+    margin: auto;
+    margin-top: 10%;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(7,30px);
+    justify-content: center;
+}
+
+.reservedseats>div {
+  margin-top: 20px;
+}
+
+
+.input{
+    margin-top: 5%;
+    height: 40px;
+    margin-right: 5%;
+}
+
+.btn{
+    height: 44px;
+    width: 200px;
+}
+.btn2{
+    height: 44px;
+    width: 250px;
+    margin-top: 20px;
+}
+.seat{
+    height: 30px;
+    border: 1px solid black;
+    text-align: center;
+    
+}
+
+.seat>p {
+    margin-top: -2px;
+}
