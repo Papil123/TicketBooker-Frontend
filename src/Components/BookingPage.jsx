@@ -370,7 +370,7 @@ const BookingPage = () => {
 
     useEffect(()=>{
         
-            // fetch("https://ticket-booker-backend-l9gh.vercel.app/seats")
+            // fetch("https://ticket-booker-backend-oy5k.vercel.app/seats")
             getAllSeats()
         
     },[])
@@ -378,7 +378,7 @@ const BookingPage = () => {
      
 
     const clearSeats = ()=>{
-        axios.delete('https://ticket-booker-backend-l9gh.vercel.app/deleteseats')
+        axios.delete('https://ticket-booker-backend-oy5k.vercel.app/deleteseats')
         .then(function (response) {
           // handle success
           console.log(response.data);
@@ -390,10 +390,10 @@ const BookingPage = () => {
 
 
     const getAllSeats=()=>{
-        axios.get('https://ticket-booker-backend-l9gh.vercel.app/all-seats')
+        axios.get('https://ticket-booker-backend-oy5k.vercel.app/all-seats')
         .then(function (response) {
           // handle success
-          console.log(response.data);
+        //   console.log(response.data);
           setData(response.data)
         })
         .catch(function (error) {
@@ -402,15 +402,16 @@ const BookingPage = () => {
         })
       
     }
+    // 'https://ticket-booker-backend-oy5k.vercel.app/seats'
     const ReserveSeats = () =>{
         if(num > 0 && num <=7){
             console.log("hii",num)
-            axios.post('https://ticket-booker-backend-l9gh.vercel.app/seats',{
-                "numSeats" : num
+            axios.post('https://ticket-booker-backend-oy5k.vercel.app/seats',{
+                numSeats : +num
             })
             .then(function (response) {
               // handle success
-              console.log(response.data);
+              console.log(response.data.reservedSeats);
               let a= response.data.reservedSeats
               setReserved(a)
               getAllSeats()
@@ -419,6 +420,20 @@ const BookingPage = () => {
               // handle error
               console.log(error);
             })
+
+            // axios.post("https://ticket-booker-backend-oy5k.vercel.app/seats", {
+            //     "numSeats":5
+            // })
+            // .then(response => {
+            //   console.log('Response:', response.data);
+            //   // Handle the response data here.
+            // })
+            // .catch(error => {
+            //   console.error('Error:', error);
+            //   // Handle any errors that occurred during the request.
+            // });
+
+
         }else{
             alert("You can Book only 7 seats at a time ")
         }
@@ -438,7 +453,7 @@ const BookingPage = () => {
          </div>
        </div>
        <div>
-        <form className={style.bookingform} >
+        <div className={style.bookingform} >
         <h1>Reserve Tickets</h1>
          <div className={style.reservedseats}  >
          {
@@ -456,7 +471,7 @@ const BookingPage = () => {
            clearSeats();
         }} className={style.btn2} >Reset All Seats</button>
 
-        </form> 
+        </div> 
        </div>
     </div>
   )
